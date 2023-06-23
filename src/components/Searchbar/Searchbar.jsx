@@ -1,46 +1,39 @@
-import React from "react";
+import { useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import PropTypes from 'prop-types';
 
 import { ReactComponent as Search } from "./Search.svg";
 
-export default class Searchbar extends React.Component {
-    state = {
-        query: '',
-    };
+export default function Searchbar({ onSubmit }){
 
-    handleChange = e => {
+    const [query, setQuery] = useState('');
 
-        this.setState({
-            query: e.currentTarget.value.toLowerCase()
-        })
-    }
-
-    handleSubmit = e => {
+    const onSubmitQuery = e => { 
         e.preventDefault();
 
-        if (this.state.query.trim() === '') {
+        if (query.trim() === '') {
             Notify.warning('Enter text');
             return;
         }
         
-        this.props.onSubmit(this.state.query);
-        this.setState({ query: '' })
+        onSubmit(query);
+        setQuery('');
     };
 
-    render() { 
-        const { query } = this.state;
-
-        return (<header className="Searchbar">
+    const handleChange = e => {
+    setQuery(e.currentTarget.value.toLowerCase());
+    }
+    
+    return (<header className="Searchbar">
             <form className="SearchForm"
-                  onSubmit={this.handleSubmit}>
+                  onSubmit={onSubmitQuery}>
                 <button type="submit"
                         className="SearchForm-button">
                     <Search width="30" height="30" />
                 </button>
                 <input 
                     value={query}
-                    onChange={this.handleChange}
+                    onChange={({ target }) => setQuery(target.value)}
                     name="query"
                     type="text"
                     className="SearchForm-input"
@@ -50,7 +43,6 @@ export default class Searchbar extends React.Component {
             </form>
             </header>
         )
-    }
 }
 
 Searchbar.propTypes = {

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const Button = ({ LoadMoreButton }) => {
+const Button = ({ loadMoreButton }) => {
   return (
-    <button className="Button" onClick={LoadMoreButton} id="load-more">
+    <button className="Button" onClick={loadMoreButton} id="load-more">
       LoadMore
     </button>
   );

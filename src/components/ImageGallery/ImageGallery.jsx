@@ -1,25 +1,22 @@
-import React from "react"
 import PropTypes from 'prop-types';
-
 import ImageGalleryItem from "components/ImageGalleryItem"
 
-const ImageGallery = ({ images }) => {
+function ImageGallery({ images }) {
     return (<ul className="ImageGallery">
-        {images.map(image => {
-            return (
+        {images.map(({ id, webformatURL, largeImageURL, tags }) => (
                 <ImageGalleryItem
-                    key={image.id}
-                    webformatURL={image.webformatURL}
-                    largeImageURL={image.largeImageURL}
-                    tags={image.tags}
+                    key={id}
+                    webformatURL={webformatURL}
+                    largeImageURL={largeImageURL}
+                    tags={tags}
                      />
             )
-        })}
+        )}
 </ul>)
 }
 
-ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired,
-};
+// ImageGallery.propTypes = {
+//   images: PropTypes.array.isRequired,
+// };
 
 export default ImageGallery
