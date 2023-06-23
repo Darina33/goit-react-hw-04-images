@@ -15,8 +15,8 @@ function ImageGallery({ images }) {
 </ul>)
 }
 
-// ImageGallery.propTypes = {
-//   images: PropTypes.array.isRequired,
-// };
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+};
 
 export default ImageGallery

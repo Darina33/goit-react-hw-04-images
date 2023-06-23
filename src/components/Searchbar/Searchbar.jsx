@@ -33,7 +33,7 @@ export default function Searchbar({ onSubmit }){
                 </button>
                 <input 
                     value={query}
-                    onChange={({ target }) => setQuery(target.value)}
+                    onChange={handleChange}
                     name="query"
                     type="text"
                     className="SearchForm-input"
