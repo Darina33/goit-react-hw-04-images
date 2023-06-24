@@ -9,7 +9,7 @@ const Button = ({ loadMoreButton }) => {
 };
 
 Button.propTypes = {
-  LoadMoreButton: PropTypes.func.isRequired,
+  loadMoreButton: PropTypes.func.isRequired,
 };
 
 export default Button;

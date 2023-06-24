@@ -59,7 +59,7 @@ export function App(){
          {isLoading && <Loader/>}
          <ImageGallery images={images} />
          {!isLoading && images.length >= 12 && !error && (
-          <Button LoadMoreButton={loadMoreButton} />
+          <Button loadMoreButton={loadMoreButton} />
         )}
       </div>
   )
